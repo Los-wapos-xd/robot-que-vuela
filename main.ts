@@ -21,9 +21,18 @@ radio.onReceivedNumber(function (receivedNumber) {
             maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CCW, 125)
         }
     }
+    if (receivedNumber == 6) {
+        maqueen.servoRun(maqueen.Servos.S2, 120)
+    }
+    if (receivedNumber == 7) {
+        maqueen.servoRun(maqueen.Servos.S2, 0)
+    }
 })
 input.onGesture(Gesture.ScreenDown, function () {
     radio.sendNumber(3)
+})
+input.onButtonPressed(Button.A, function () {
+    radio.sendNumber(6)
 })
 input.onGesture(Gesture.ScreenUp, function () {
     radio.sendNumber(2)
@@ -33,5 +42,8 @@ input.onGesture(Gesture.TiltRight, function () {
 })
 input.onGesture(Gesture.TiltLeft, function () {
     radio.sendNumber(5)
+})
+input.onButtonPressed(Button.B, function () {
+    radio.sendNumber(7)
 })
 radio.setGroup(1)
